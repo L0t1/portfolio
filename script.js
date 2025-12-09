@@ -702,25 +702,13 @@ Cluster Health: OPTIMAL
                 resultDiv.className = 'command-result';
                 resultDiv.innerHTML = result;
                 output.appendChild(resultDiv);
-                // Ensure large outputs (e.g., help) are visible without manual scroll
-                requestAnimationFrame(() => {
-                    resultDiv.scrollIntoView({ behavior: 'smooth', block: 'end' });
-                    output.scrollTop = output.scrollHeight;
-                });
             }
         } else {
             const errorDiv = document.createElement('div');
             errorDiv.className = 'command-error';
             errorDiv.innerHTML = `<span class="error">Command not found: ${cmd}</span><br>Type <span class="highlight">help</span> for available commands.`;
             output.appendChild(errorDiv);
-            requestAnimationFrame(() => {
-                errorDiv.scrollIntoView({ behavior: 'smooth', block: 'end' });
-                output.scrollTop = output.scrollHeight;
-            });
         }
-        
-        // Fallback scroll
-        output.scrollTop = output.scrollHeight;
     }
     
     function navigateToSection(section) {
