@@ -61,6 +61,7 @@ function handleBootSequence() {
 function setupNavigation() {
     const navCommands = document.querySelectorAll('.nav-command');
     const sections = document.querySelectorAll('.terminal-window');
+    const navPanel = document.querySelector('.nav-panel');
     
     navCommands.forEach(command => {
         command.addEventListener('click', function(e) {
@@ -83,6 +84,11 @@ function setupNavigation() {
                 
                 // Scroll to top of content
                 targetElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+
+            // Auto-close mobile nav after selection
+            if (window.innerWidth <= 1200 && navPanel) {
+                navPanel.style.display = 'none';
             }
         });
     });
