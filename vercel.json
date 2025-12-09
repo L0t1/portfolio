@@ -4,9 +4,6 @@
   "buildCommand": "echo 'Static HTML site - no build required'",
   "outputDirectory": ".",
   "public": true,
-  "env": {
-    "VERCEL_ANALYTICS_ID": "@portfolio_analytics_id"
-  },
   "headers": [
     {
       "source": "/(.*)",
