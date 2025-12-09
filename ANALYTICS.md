@@ -1,17 +1,15 @@
 # Analytics Guidance
 
-Current policy: **Vercel Web Analytics is enabled via CDN scripts** in `index.html` and includes Web Vitals tracking.
+Current policy: **Vercel Web Analytics is enabled via Vercel Insights endpoint** (`/_vercel/insights/script.js`) for plain HTML sites with automatic Web Vitals collection.
 
 ## Implementation (already present in `<head>`)
 
 ```html
 <!-- Vercel Web Analytics -->
-<script defer src="https://cdn.vercel-analytics.com/v1/script.js"></script>
 <script>
   window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
 </script>
-<!-- Web Vitals Tracking for Performance Monitoring -->
-<script defer src="https://cdn.vercel-analytics.com/v1/web-vitals.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
 ```
 
 ## Custom events (optional)
@@ -28,12 +26,14 @@ window.va?.('event', {
 2) Go to **Analytics** to view page views, referrers, and Core Web Vitals.
 
 ## Notes on configuration
-- No build step; CDN scripts are the lightweight path for this static site.
-- `vercel.json` keeps cache/security headers and SPA rewrites; no analytics ID is required for the default setup.
+- No build step; using Vercel's built-in `/insights/` endpoint for plain HTML sites.
+- `vercel.json` keeps cache/security headers and SPA rewrites; no additional setup required.
+- Web Vitals automatically collected through the Insights script.
 
 ## Privacy and performance
-- Scripts are small (~2–3 KB gzipped) and deferred; negligible render impact.
-- Data is sent to Vercel’s analytics endpoints; no PII collected by default.
+- Script is automatically served by Vercel; extremely lightweight with negligible render impact.
+- Data is sent to Vercel's insights endpoints; no PII collected by default.
+- Works automatically on Vercel-hosted sites without additional configuration.
 
 ## Troubleshooting
 - Ensure deployment is on Vercel and allow a few minutes for data to appear.
