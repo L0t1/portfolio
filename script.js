@@ -520,7 +520,7 @@ function setupTerminalCommands() {
     const commandInputHTML = `
         <div class="terminal-input-area">
             <span class="terminal-prompt">root@backend-os:~$</span>
-            <input type="text" class="terminal-command-input" id="terminal-input" placeholder="Type 'help' for available commands..." autocomplete="off">
+            <input type="text" class="terminal-command-input" id="terminal-input" placeholder="← Execute here • try 'help' to explore..." autocomplete="off" title="Type a command">
         </div>
         <div class="terminal-command-output" id="command-output"></div>
     `;

@@ -1645,14 +1645,22 @@ body::after {
 /* Terminal Command Styling */
 .terminal-input-area {
     margin-top: 1rem;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: baseline;
+    gap: 0.5rem;
     padding: 0.75rem;
     background: rgba(0, 0, 0, 0.3);
     border: 1px solid var(--cyber-cyan);
     border-radius: 4px;
+}
+
+.terminal-prompt {
+    color: var(--cyber-green);
+    font-weight: 600;
+    white-space: nowrap;
+    display: inline-block;
+    line-height: 1.4;
 }
 
 .terminal-command-input {
@@ -1669,7 +1677,8 @@ body::after {
 
 .terminal-command-input::placeholder {
     color: var(--cyber-gray);
-    opacity: 0.5;
+    opacity: 0.8;
+    font-weight: 400;
 }
 
 .terminal-command-output {
