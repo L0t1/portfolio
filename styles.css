@@ -1648,6 +1648,7 @@ body::after {
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    flex-wrap: wrap;
     padding: 0.75rem;
     background: rgba(0, 0, 0, 0.3);
     border: 1px solid var(--cyber-cyan);
@@ -1663,6 +1664,7 @@ body::after {
     font-size: 14px;
     outline: none;
     caret-color: var(--cyber-cyan);
+    min-width: 180px;
 }
 
 .terminal-command-input::placeholder {
@@ -1683,13 +1685,31 @@ body::after {
     box-sizing: border-box;
 }
 
+@media (max-width: 540px) {
+    .terminal-input-area {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+
+    .terminal-input-area .terminal-prompt {
+        margin-bottom: 0;
+    }
+
+    .terminal-command-input {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
 /* Optimize help output layout for horizontal space */
 .help-output {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 0.75rem 1.25rem;
     font-family: var(--font-mono);
-    line-height: 1.8;
+    line-height: 1.7;
+    word-break: break-word;
 }
 
 .help-header {
@@ -1708,6 +1728,12 @@ body::after {
     .help-output {
         grid-template-columns: 1fr;
         gap: 0.6rem 1rem;
+    }
+}
+
+@media (max-width: 1024px) {
+    .help-output {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -1747,19 +1773,23 @@ body::after {
 }
 
 .help-item {
-    margin-bottom: 0.5rem;
-    padding-left: 1rem;
+    margin-bottom: 0.35rem;
+    padding-left: 0.75rem;
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    align-items: flex-start;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+    width: 100%;
+    min-width: 0;
 }
 
 .cmd-name {
     color: var(--cyber-green);
     font-weight: 700;
     text-shadow: var(--glow-green);
-    min-width: 90px;
+    min-width: 68px;
     display: inline-block;
+    flex-shrink: 0;
 }
 
 .cmd-separator {
@@ -1769,7 +1799,11 @@ body::after {
 
 .cmd-desc {
     color: var(--cyber-white);
-    opacity: 0.9;
+    opacity: 0.95;
+    word-break: break-word;
+    flex: 1;
+    min-width: 0;
+    white-space: normal;
 }
 
 .help-footer {
