@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOT-KYÇYKU :: BACKEND_OS v1.9.22</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- BOOT SEQUENCE OVERLAY -->
+    <div id="boot-sequence" class="boot-overlay active">
+        <div class="boot-container">
+            <div class="boot-logo">
+                <span class="glitch" data-text="BACKEND_OS">BACKEND_OS</span>
+                <div class="version">v1.9.22</div>
+            </div>
+            <div class="boot-log">
+                <div class="boot-line">> BOOTING PORTFOLIO_OS v1.9.22...</div>
+                <div class="boot-line">> CONNECTING TO LOT-KYÇYKU.BACKEND_CORE...</div>
+                <div class="boot-line">> AUTHENTICATION: <span class="success">SUCCESS</span></div>
+                <div class="boot-line">> LOADING MODULES:</div>
+                <div class="boot-line module">    - LARAVEL_KERNEL</div>
+                <div class="boot-line module">    - MYSQL_CLUSTER</div>
+                <div class="boot-line module">    - MONGODB_SHARD</div>
+                <div class="boot-line module">    - REDIS_QUEUE_DRIVER</div>
+                <div class="boot-line module">    - DOCKERD</div>
+                <div class="boot-line module">    - API_GATEWAY</div>
+                <div class="boot-line module">    - FRONTEND_INTEGRATION</div>
+                <div class="boot-line">> SYSTEM STATUS: <span class="stable">STABLE</span></div>
+                <div class="boot-line">> RENDERING INTERFACE...</div>
+                <div class="boot-progress">
+                    <div class="progress-bar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN INTERFACE -->
+    <div id="main-interface" class="main-container">
+        <!-- HEADER / STATUS BAR -->
+        <header class="status-bar">
+            <div class="status-left">
+                <span class="status-indicator pulse"></span>
+                <span class="status-text">SYSTEM ONLINE</span>
+                <span class="separator">|</span>
+                <span class="user">root@lot-kyçyku</span>
+            </div>
+            <div class="status-center">
+                <span class="system-name">BACKEND_OS</span>
+            </div>
+            <div class="status-right">
+                <span class="time" id="current-time">00:00:00</span>
+                <span class="separator">|</span>
+                <span class="date" id="current-date">2025.12.09</span>
+            </div>
+        </header>
+
+        <!-- MAIN LAYOUT -->
+        <div class="dashboard">
+            <!-- LEFT NAVIGATION PANEL -->
+            <nav class="nav-panel">
+                <div class="panel-header">
+                    <span class="panel-title">$ NAVIGATION</span>
+                    <div class="panel-indicator"></div>
+                </div>
+                <div class="nav-content">
+                    <a href="#home" class="nav-command active" data-section="home">
+                        <span class="command-prefix">$</span>
+                        <span class="command-text">/system/home</span>
+                        <span class="command-arrow">→</span>
+                    </a>
+                    <a href="#whoami" class="nav-command" data-section="whoami">
+                        <span class="command-prefix">$</span>
+                        <span class="command-text">/system/whoami</span>
+                        <span class="command-arrow">→</span>
+                    </a>
+                    <a href="#skills" class="nav-command" data-section="skills">
+                        <span class="command-prefix">$</span>
+                        <span class="command-text">/system/skills</span>
+                        <span class="command-arrow">→</span>
+                    </a>
+                    <a href="#experience" class="nav-command" data-section="experience">
+                        <span class="command-prefix">$</span>
+                        <span class="command-text">/system/experience</span>
+                        <span class="command-arrow">→</span>
+                    </a>
+                    <a href="#projects" class="nav-command" data-section="projects">
+                        <span class="command-prefix">$</span>
+                        <span class="command-text">/system/projects</span>
+                        <span class="command-arrow">→</span>
+                    </a>
+                    <a href="#contact" class="nav-command" data-section="contact">
+                        <span class="command-prefix">$</span>
+                        <span class="command-text">/system/contact</span>
+                        <span class="command-arrow">→</span>
+                    </a>
+                    <a href="#logs" class="nav-command" data-section="logs">
+                        <span class="command-prefix">$</span>
+                        <span class="command-text">/system/logs</span>
+                        <span class="command-arrow">→</span>
+                    </a>
+                </div>
+                <div class="nav-footer">
+                    <div class="system-info">
+                        <div class="info-line">KERNEL: LARAVEL</div>
+                        <div class="info-line">BUILD: 2025.12.09</div>
+                        <div class="info-line">USER: LOT KYÇYKU</div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- CENTER CONTENT PANEL -->
+            <main class="content-panel">
+                <!-- HOME SECTION -->
+                <section id="home" class="terminal-window active">
+                    <div class="window-header">
+                        <div class="window-controls">
+                            <span class="control"></span>
+                            <span class="control"></span>
+                            <span class="control"></span>
+                        </div>
+                        <div class="window-title">~/home</div>
+                        <div class="window-status">ACTIVE</div>
+                    </div>
+                    <div class="window-content">
+                        <div class="terminal-output">
+                            <pre class="ascii-art">
+ ██▓     ▒█████  ▄▄▄█████▓    ██ ▄█▀▓██   ██▓ ▄████▄ ▓██   ██▓ ██ ▄█▀ █    ██ 
+▓██▒    ▒██▒  ██▒▓  ██▒ ▓▒    ██▄█▒  ▒██  ██▒▒██▀ ▀█  ▒██  ██▒ ██▄█▒  ██  ▓██▒
+▒██░    ▒██░  ██▒▒ ▓██░ ▒░   ▓███▄░   ▒██ ██░▒▓█    ▄  ▒██ ██░▓███▄░ ▓██  ▒██░
+▒██░    ▒██   ██░░ ▓██▓ ░    ▓██ █▄   ░ ▐██▓░▒▓▓▄ ▄██▒ ░ ▐██▓░▓██ █▄ ▓▓█  ░██░
+░██████▒░ ████▓▒░  ▒██▒ ░    ▒██▒ █▄  ░ ██▒▓░▒ ▓███▀ ░ ░ ██▒▓░▒██▒ █▄▒▒█████▓ 
+░ ▒░▓  ░░ ▒░▒░▒░   ▒ ░░      ▒ ▒▒ ▓▒   ██▒▒▒ ░ ░▒ ▒  ░  ██▒▒▒ ▒ ▒▒ ▓▒░▒▓▒ ▒ ▒ 
+░ ░ ▒  ░  ░ ▒ ▒░     ░       ░ ░▒ ▒░ ▓██ ░▒░   ░  ▒   ▓██ ░▒░ ░ ░▒ ▒░░░▒░ ░ ░ 
+  ░ ░   ░ ░ ░ ▒    ░         ░ ░░ ░  ▒ ▒ ░░  ░        ▒ ▒ ░░  ░ ░░ ░  ░░░ ░ ░ 
+    ░  ░    ░ ░              ░  ░    ░ ░     ░ ░      ░ ░     ░  ░      ░     
+                                     ░ ░     ░        ░ ░                      
+                            </pre>
+                            <div class="welcome-text">
+                                <div class="type-line">> Welcome to <span class="highlight">BACKEND_OS</span></div>
+                                <div class="type-line">> Personal Portfolio Interface</div>
+                                <div class="type-line">> Backend Developer • Laravel Specialist • System Architect</div>
+                                <div class="type-line">&nbsp;</div>
+                                <div class="type-line">> Use navigation commands to explore the system</div>
+                                <div class="type-line">> Type <span class="command-inline">help</span> for available commands</div>
+                                <div class="type-line cursor-blink">█</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- WHOAMI SECTION -->
+                <section id="whoami" class="terminal-window">
+                    <div class="window-header">
+                        <div class="window-controls">
+                            <span class="control"></span>
+                            <span class="control"></span>
+                            <span class="control"></span>
+                        </div>
+                        <div class="window-title">~/whoami</div>
+                        <div class="window-status">READY</div>
+                    </div>
+                    <div class="window-content">
+                        <div class="terminal-output">
+                            <div class="command-line">$ whoami</div>
+                            <div class="json-output">
+<pre>{
+  <span class="json-key">"name"</span>: <span class="json-string">"Lot Kyçyku"</span>,
+  <span class="json-key">"role"</span>: <span class="json-string">"Backend Developer (Laravel Specialist)"</span>,
+  <span class="json-key">"experience_years"</span>: <span class="json-number">4</span>,
+  <span class="json-key">"location"</span>: <span class="json-string">"Prizren, Kosovo"</span>,
+  <span class="json-key">"email"</span>: <span class="json-string">"lotkycyku@gmail.com"</span>,
+  <span class="json-key">"phone"</span>: <span class="json-string">"+38345450350"</span>,
+  <span class="json-key">"github"</span>: <span class="json-string">"github.com/L0t1"</span>,
+  <span class="json-key">"linkedin"</span>: <span class="json-string">"linkedin.com/in/lotuuu"</span>,
+  <span class="json-key">"education"</span>: <span class="json-string">"BSc Computer Science & Engineering (UBT)"</span>,
+  <span class="json-key">"summary"</span>: <span class="json-string">"Backend Developer with 4+ years of experience building scalable, high-performance Laravel applications and APIs. Strong in database engineering (MySQL + MongoDB), queue systems, cron jobs, automation, Docker workflows, system architecture, and collaboration with frontend teams (React, Vue, Tailwind). Focused on clean architecture, performance, and production-ready code."</span>
+}</pre>
+                            </div>
+                            <div class="profile-hologram">
+                                <div class="hologram-frame">
+                                    <div class="hologram-overlay"></div>
+                                    <div class="hologram-scanline"></div>
+                                    <div class="profile-placeholder">
+                                        <div class="avatar-icon">LK</div>
+                                    </div>
+                                    <div class="hologram-label">IDENTITY VERIFIED</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SKILLS SECTION -->
+                <section id="skills" class="terminal-window">
+                    <div class="window-header">
+                        <div class="window-controls">
+                            <span class="control"></span>
+                            <span class="control"></span>
+                            <span class="control"></span>
+                        </div>
+                        <div class="window-title">~/skills</div>
+                        <div class="window-status">RUNNING</div>
+                    </div>
+                    <div class="window-content">
+                        <div class="terminal-output">
+                            <div class="command-line">$ pkg list --installed</div>
+                            <div class="package-list">
+                                <div class="package-item" data-status="stable">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">laravel/framework</span>
+                                    <span class="pkg-version">v11.x</span>
+                                    <span class="pkg-status">[STABLE]</span>
+                                </div>
+                                <div class="package-item" data-status="optimized">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">php</span>
+                                    <span class="pkg-version">v8.3</span>
+                                    <span class="pkg-status">[OPTIMIZED]</span>
+                                </div>
+                                <div class="package-item" data-status="indexed">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">mysql</span>
+                                    <span class="pkg-version">cluster</span>
+                                    <span class="pkg-status">[INDEXED]</span>
+                                </div>
+                                <div class="package-item" data-status="sharded">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">mongodb</span>
+                                    <span class="pkg-version">replica</span>
+                                    <span class="pkg-status">[SHARDED]</span>
+                                </div>
+                                <div class="package-item" data-status="active">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">redis</span>
+                                    <span class="pkg-version">queue</span>
+                                    <span class="pkg-status">[ACTIVE]</span>
+                                </div>
+                                <div class="package-item" data-status="ready">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">docker</span>
+                                    <span class="pkg-version">engine</span>
+                                    <span class="pkg-status">[READY]</span>
+                                </div>
+                                <div class="package-item" data-status="online">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">horizon</span>
+                                    <span class="pkg-version">monitor</span>
+                                    <span class="pkg-status">[ONLINE]</span>
+                                </div>
+                                <div class="package-item" data-status="scheduled">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">cron-scheduler</span>
+                                    <span class="pkg-version">service</span>
+                                    <span class="pkg-status">[SCHEDULED]</span>
+                                </div>
+                                <div class="package-item" data-status="integrated">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">vue.js</span>
+                                    <span class="pkg-version">support</span>
+                                    <span class="pkg-status">[INTEGRATED]</span>
+                                </div>
+                                <div class="package-item" data-status="integrated">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">react.js</span>
+                                    <span class="pkg-version">support</span>
+                                    <span class="pkg-status">[INTEGRATED]</span>
+                                </div>
+                                <div class="package-item" data-status="active">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">tailwindcss</span>
+                                    <span class="pkg-version">ui-core</span>
+                                    <span class="pkg-status">[ACTIVE]</span>
+                                </div>
+                                <div class="package-item" data-status="stable">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">inertia.js</span>
+                                    <span class="pkg-version">spa</span>
+                                    <span class="pkg-status">[STABLE]</span>
+                                </div>
+                                <div class="package-item" data-status="active">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">jwt/oauth</span>
+                                    <span class="pkg-version">auth</span>
+                                    <span class="pkg-status">[ACTIVE]</span>
+                                </div>
+                                <div class="package-item" data-status="secured">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">laravel-sanctum</span>
+                                    <span class="pkg-version">api-auth</span>
+                                    <span class="pkg-status">[SECURED]</span>
+                                </div>
+                                <div class="package-item" data-status="ready">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">laravel-jetstream</span>
+                                    <span class="pkg-version">scaffold</span>
+                                    <span class="pkg-status">[READY]</span>
+                                </div>
+                                <div class="package-item" data-status="protected">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">laravel-fortify</span>
+                                    <span class="pkg-version">backend</span>
+                                    <span class="pkg-status">[PROTECTED]</span>
+                                </div>
+                                <div class="package-item" data-status="documented">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">swagger/openapi</span>
+                                    <span class="pkg-version">docs</span>
+                                    <span class="pkg-status">[DOCUMENTED]</span>
+                                </div>
+                                <div class="package-item" data-status="tested">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">postman</span>
+                                    <span class="pkg-version">testing</span>
+                                    <span class="pkg-status">[TESTED]</span>
+                                </div>
+                                <div class="package-item" data-status="automated">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">ci/cd-pipeline</span>
+                                    <span class="pkg-version">github-actions</span>
+                                    <span class="pkg-status">[AUTOMATED]</span>
+                                </div>
+                                <div class="package-item" data-status="optimized">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">nginx</span>
+                                    <span class="pkg-version">proxy</span>
+                                    <span class="pkg-status">[OPTIMIZED]</span>
+                                </div>
+                                <div class="package-item" data-status="deployed">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">aws/digitalocean</span>
+                                    <span class="pkg-version">cloud</span>
+                                    <span class="pkg-status">[DEPLOYED]</span>
+                                </div>
+                                <div class="package-item" data-status="verified">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">phpunit</span>
+                                    <span class="pkg-version">testing</span>
+                                    <span class="pkg-status">[VERIFIED]</span>
+                                </div>
+                                <div class="package-item" data-status="tested">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">pest</span>
+                                    <span class="pkg-version">modern-test</span>
+                                    <span class="pkg-status">[TESTED]</span>
+                                </div>
+                                <div class="package-item" data-status="managed">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">composer</span>
+                                    <span class="pkg-version">dependency</span>
+                                    <span class="pkg-status">[MANAGED]</span>
+                                </div>
+                                <div class="package-item" data-status="tracked">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">git</span>
+                                    <span class="pkg-version">vcs</span>
+                                    <span class="pkg-status">[TRACKED]</span>
+                                </div>
+                                <div class="package-item" data-status="integrated">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">webhooks</span>
+                                    <span class="pkg-version">events</span>
+                                    <span class="pkg-status">[INTEGRATED]</span>
+                                </div>
+                                <div class="package-item" data-status="connected">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">websockets</span>
+                                    <span class="pkg-version">realtime</span>
+                                    <span class="pkg-status">[CONNECTED]</span>
+                                </div>
+                                <div class="package-item" data-status="indexed">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">elasticsearch</span>
+                                    <span class="pkg-version">search</span>
+                                    <span class="pkg-status">[INDEXED]</span>
+                                </div>
+                                <div class="package-item" data-status="configured">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">custom-middleware</span>
+                                    <span class="pkg-version">http</span>
+                                    <span class="pkg-status">[CONFIGURED]</span>
+                                </div>
+                                <div class="package-item" data-status="monitored">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">job-queues</span>
+                                    <span class="pkg-version">async</span>
+                                    <span class="pkg-status">[MONITORED]</span>
+                                </div>
+                                <div class="package-item" data-status="supported">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">javascript/typescript</span>
+                                    <span class="pkg-version">modern</span>
+                                    <span class="pkg-status">[SUPPORTED]</span>
+                                </div>
+                                <div class="package-item" data-status="automated">
+                                    <span class="pkg-bullet">•</span>
+                                    <span class="pkg-name">laravel-dusk</span>
+                                    <span class="pkg-version">browser-test</span>
+                                    <span class="pkg-status">[AUTOMATED]</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- EXPERIENCE SECTION -->
+                <section id="experience" class="terminal-window">
+                    <div class="window-header">
+                        <div class="window-controls">
+                            <span class="control"></span>
+                            <span class="control"></span>
+                            <span class="control"></span>
+                        </div>
+                        <div class="window-title">~/experience</div>
+                        <div class="window-status">STREAMING</div>
+                    </div>
+                    <div class="window-content">
+                        <div class="terminal-output">
+                            <div class="command-line">$ cat /var/log/experience.log</div>
+                            <div class="log-output">
+                                <div class="log-entry">
+                                    <div class="log-timestamp">[2022-05 → Present]</div>
+                                    <div class="log-title">Albismart :: Backend Developer</div>
+                                    <div class="log-details">
+                                        <div class="log-line">▶ Designed and maintained large-scale Laravel applications</div>
+                                        <div class="log-line">▶ Built RESTful APIs for production clients</div>
+                                        <div class="log-line">▶ Engineered MySQL & MongoDB schemas</div>
+                                        <div class="log-line">▶ Implemented cron automation for reporting & alerts</div>
+                                        <div class="log-line">▶ Designed queue systems using Redis & Horizon</div>
+                                        <div class="log-line">▶ Dockerized environments for dev & production</div>
+                                        <div class="log-line">▶ Integrated with React, Vue & Tailwind frontend teams</div>
+                                        <div class="log-line">▶ Participated in code reviews & CI collaboration</div>
+                                    </div>
+                                </div>
+                                <div class="log-footer">
+                                    <span class="log-info">— END OF LOG —</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PROJECTS SECTION -->
+                <section id="projects" class="terminal-window">
+                    <div class="window-header">
+                        <div class="window-controls">
+                            <span class="control"></span>
+                            <span class="control"></span>
+                            <span class="control"></span>
+                        </div>
+                        <div class="window-title">~/projects</div>
+                        <div class="window-status">MONITORING</div>
+                    </div>
+                    <div class="window-content">
+                        <div class="terminal-output">
+                            <div class="command-line">$ service list --active</div>
+                            <div class="services-grid">
+                                <div class="service-node">
+                                    <div class="node-header">
+                                        <span class="node-status active"></span>
+                                        <span class="node-name">[service: ai-customer-support]</span>
+                                    </div>
+                                    <div class="node-status-text">STATUS: <span class="status-active">ACTIVE</span></div>
+                                    <div class="node-info">
+                                        <div class="info-row">
+                                            <span class="info-label">Type:</span>
+                                            <span class="info-value">AI Integration</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">Description:</span>
+                                            <span class="info-value">Intelligent customer support system with AI-powered responses.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="service-node">
+                                    <div class="node-header">
+                                        <span class="node-status active"></span>
+                                        <span class="node-name">[service: predictive-analytics]</span>
+                                    </div>
+                                    <div class="node-status-text">STATUS: <span class="status-active">ACTIVE</span></div>
+                                    <div class="node-info">
+                                        <div class="info-row">
+                                            <span class="info-label">Type:</span>
+                                            <span class="info-value">Data Analytics</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">Description:</span>
+                                            <span class="info-value">Machine learning-based predictive analytics engine.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="service-node">
+                                    <div class="node-header">
+                                        <span class="node-status online"></span>
+                                        <span class="node-name">[service: image-recognition]</span>
+                                    </div>
+                                    <div class="node-status-text">STATUS: <span class="status-online">ONLINE</span></div>
+                                    <div class="node-info">
+                                        <div class="info-row">
+                                            <span class="info-label">Type:</span>
+                                            <span class="info-value">OCR & AI Vision</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">Description:</span>
+                                            <span class="info-value">Image processing and recognition using Google Vision API.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="service-node">
+                                    <div class="node-header">
+                                        <span class="node-status running"></span>
+                                        <span class="node-name">[service: ecommerce-platform]</span>
+                                    </div>
+                                    <div class="node-status-text">STATUS: <span class="status-running">RUNNING</span></div>
+                                    <div class="node-info">
+                                        <div class="info-row">
+                                            <span class="info-label">Type:</span>
+                                            <span class="info-value">E-commerce Backend</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">Description:</span>
+                                            <span class="info-value">Full-featured e-commerce platform with payment integration.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="service-node">
+                                    <div class="node-header">
+                                        <span class="node-status active"></span>
+                                        <span class="node-name">[service: finances-saas]</span>
+                                    </div>
+                                    <div class="node-status-text">STATUS: <span class="status-active">ACTIVE</span></div>
+                                    <div class="node-info">
+                                        <div class="info-row">
+                                            <span class="info-label">Type:</span>
+                                            <span class="info-value">Financial SaaS</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">Description:</span>
+                                            <span class="info-value">Cloud-based financial management and accounting platform.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="service-node">
+                                    <div class="node-header">
+                                        <span class="node-status ready"></span>
+                                        <span class="node-name">[service: fleet-management]</span>
+                                    </div>
+                                    <div class="node-status-text">STATUS: <span class="status-ready">READY</span></div>
+                                    <div class="node-info">
+                                        <div class="info-row">
+                                            <span class="info-label">Type:</span>
+                                            <span class="info-value">Fleet Tracking</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">Description:</span>
+                                            <span class="info-value">Vehicle fleet management and GPS tracking system.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="service-node">
+                                    <div class="node-header">
+                                        <span class="node-status online"></span>
+                                        <span class="node-name">[service: corporate-dashboard]</span>
+                                    </div>
+                                    <div class="node-status-text">STATUS: <span class="status-online">ONLINE</span></div>
+                                    <div class="node-info">
+                                        <div class="info-row">
+                                            <span class="info-label">Type:</span>
+                                            <span class="info-value">Analytics Platform</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">Description:</span>
+                                            <span class="info-value">Real-time business analytics and reporting dashboard.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="service-node">
+                                    <div class="node-header">
+                                        <span class="node-status active"></span>
+                                        <span class="node-name">[service: hr-management]</span>
+                                    </div>
+                                    <div class="node-status-text">STATUS: <span class="status-active">ACTIVE</span></div>
+                                    <div class="node-info">
+                                        <div class="info-row">
+                                            <span class="info-label">Type:</span>
+                                            <span class="info-value">HRMS Platform</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">Description:</span>
+                                            <span class="info-value">Employee management, payroll, and attendance tracking.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="service-node">
+                                    <div class="node-header">
+                                        <span class="node-status online"></span>
+                                        <span class="node-name">[service: project-tracker]</span>
+                                    </div>
+                                    <div class="node-status-text">STATUS: <span class="status-online">ONLINE</span></div>
+                                    <div class="node-info">
+                                        <div class="info-row">
+                                            <span class="info-label">Type:</span>
+                                            <span class="info-value">Project Management</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">Description:</span>
+                                            <span class="info-value">Task tracking, team collaboration, and project timelines.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="service-node">
+                                    <div class="node-header">
+                                        <span class="node-status running"></span>
+                                        <span class="node-name">[service: inventory-system]</span>
+                                    </div>
+                                    <div class="node-status-text">STATUS: <span class="status-running">RUNNING</span></div>
+                                    <div class="node-info">
+                                        <div class="info-row">
+                                            <span class="info-label">Type:</span>
+                                            <span class="info-value">Inventory Management</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">Description:</span>
+                                            <span class="info-value">Stock management with real-time inventory tracking.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="service-node">
+                                    <div class="node-header">
+                                        <span class="node-status ready"></span>
+                                        <span class="node-name">[service: pos-system]</span>
+                                    </div>
+                                    <div class="node-status-text">STATUS: <span class="status-ready">READY</span></div>
+                                    <div class="node-info">
+                                        <div class="info-row">
+                                            <span class="info-label">Type:</span>
+                                            <span class="info-value">Point of Sale</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">Description:</span>
+                                            <span class="info-value">Retail POS system with transaction processing and reporting.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="service-node">
+                                    <div class="node-header">
+                                        <span class="node-status ready"></span>
+                                        <span class="node-name">[service: travel-agency-portal]</span>
+                                    </div>
+                                    <div class="node-status-text">STATUS: <span class="status-ready">READY</span></div>
+                                    <div class="node-info">
+                                        <div class="info-row">
+                                            <span class="info-label">Type:</span>
+                                            <span class="info-value">Travel Management</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">Description:</span>
+                                            <span class="info-value">Travel booking portal with package and itinerary management.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="service-node">
+                                    <div class="node-header">
+                                        <span class="node-status running"></span>
+                                        <span class="node-name">[service: restaurant-landing]</span>
+                                    </div>
+                                    <div class="node-status-text">STATUS: <span class="status-running">RUNNING</span></div>
+                                    <div class="node-info">
+                                        <div class="info-row">
+                                            <span class="info-label">Type:</span>
+                                            <span class="info-value">Web Platform</span>
+                                        </div>
+                                        <div class="info-row">
+                                            <span class="info-label">Description:</span>
+                                            <span class="info-value">Restaurant booking and menu management system.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- CONTACT SECTION -->
+                <section id="contact" class="terminal-window">
+                    <div class="window-header">
+                        <div class="window-controls">
+                            <span class="control"></span>
+                            <span class="control"></span>
+                            <span class="control"></span>
+                        </div>
+                        <div class="window-title">~/contact</div>
+                        <div class="window-status">INTERACTIVE</div>
+                    </div>
+                    <div class="window-content">
+                        <div class="terminal-output">
+                            <div class="command-line">$ message --compose</div>
+                            <div class="contact-form">
+                                <div class="form-group">
+                                    <label class="form-label">--from</label>
+                                    <input type="email" class="form-input" placeholder="your.email@domain.com" id="contact-email">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">--subject</label>
+                                    <input type="text" class="form-input" placeholder="Subject line" id="contact-subject">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">--message</label>
+                                    <textarea class="form-textarea" placeholder="Enter message below..." id="contact-message" rows="6"></textarea>
+                                </div>
+                                <button class="form-submit" id="send-message">
+                                    <span class="submit-text">$ send --to "lotkycyku@gmail.com"</span>
+                                </button>
+                                <div class="form-status" id="form-status"></div>
+                            </div>
+                            <div class="contact-links">
+                                <div class="link-section">
+                                    <div class="link-title">$ connect --social</div>
+                                    <a href="https://github.com/L0t1" target="_blank" class="social-link">
+                                        <span class="link-icon">→</span>
+                                        <span class="link-text">GitHub: github.com/L0t1</span>
+                                    </a>
+                                    <a href="https://linkedin.com/in/lotuuu" target="_blank" class="social-link">
+                                        <span class="link-icon">→</span>
+                                        <span class="link-text">LinkedIn: linkedin.com/in/lotuuu</span>
+                                    </a>
+                                    <a href="mailto:lotkycyku@gmail.com" class="social-link">
+                                        <span class="link-icon">→</span>
+                                        <span class="link-text">Email: lotkycyku@gmail.com</span>
+                                    </a>
+                                    <a href="tel:+38345450350" class="social-link">
+                                        <span class="link-icon">→</span>
+                                        <span class="link-text">Phone: +383 45 450 350</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- LOGS SECTION -->
+                <section id="logs" class="terminal-window">
+                    <div class="window-header">
+                        <div class="window-controls">
+                            <span class="control"></span>
+                            <span class="control"></span>
+                            <span class="control"></span>
+                        </div>
+                        <div class="window-title">~/logs</div>
+                        <div class="window-status">LIVE</div>
+                    </div>
+                    <div class="window-content">
+                        <div class="terminal-output">
+                            <div class="command-line">$ tail -f /var/log/system.log</div>
+                            <div class="live-logs" id="live-logs">
+                                <div class="log-line">[2025-12-09 14:23:45] INFO: Portfolio interface initialized</div>
+                                <div class="log-line">[2025-12-09 14:23:46] INFO: Backend modules loaded successfully</div>
+                                <div class="log-line">[2025-12-09 14:23:47] INFO: Database connections established</div>
+                                <div class="log-line">[2025-12-09 14:23:48] INFO: Queue workers monitoring active</div>
+                                <div class="log-line">[2025-12-09 14:23:49] INFO: API gateway responding</div>
+                                <div class="log-line">[2025-12-09 14:23:50] INFO: Visitor connected from your location</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+            <!-- RIGHT METRICS PANEL -->
+            <aside class="metrics-panel">
+                <div class="panel-header">
+                    <span class="panel-title">$ METRICS</span>
+                    <div class="panel-indicator"></div>
+                </div>
+                
+                <div class="metric-block">
+                    <div class="metric-title">CPU USAGE</div>
+                    <div class="metric-bar">
+                        <div class="bar-fill" style="width: 34%"></div>
+                    </div>
+                    <div class="metric-value">34%</div>
+                </div>
+
+                <div class="metric-block">
+                    <div class="metric-title">RAM USAGE</div>
+                    <div class="metric-bar">
+                        <div class="bar-fill" style="width: 58%"></div>
+                    </div>
+                    <div class="metric-value">58%</div>
+                </div>
+
+                <div class="metric-block">
+                    <div class="metric-title">QUEUE WORKERS</div>
+                    <div class="metric-status">
+                        <span class="status-dot active"></span>
+                        <span>3 ACTIVE</span>
+                    </div>
+                </div>
+
+                <div class="metric-block">
+                    <div class="metric-title">CRON JOBS</div>
+                    <div class="metric-status">
+                        <span class="status-dot scheduled"></span>
+                        <span>5 SCHEDULED</span>
+                    </div>
+                </div>
+
+                <div class="metric-block">
+                    <div class="metric-title">API REQUESTS</div>
+                    <div class="metric-counter" id="api-counter">1,247</div>
+                    <div class="metric-sublabel">TODAY</div>
+                </div>
+
+                <div class="metric-block">
+                    <div class="metric-title">DB CONNECTIONS</div>
+                    <div class="metric-status">
+                        <span class="status-dot online"></span>
+                        <span>MYSQL: CONNECTED</span>
+                    </div>
+                    <div class="metric-status">
+                        <span class="status-dot online"></span>
+                        <span>MONGO: CONNECTED</span>
+                    </div>
+                </div>
+
+                <div class="metric-block cluster-health">
+                    <div class="metric-title">CLUSTER HEALTH</div>
+                    <div class="health-status optimal">
+                        <span class="health-icon">◆</span>
+                        <span>OPTIMAL</span>
+                    </div>
+                </div>
+
+                <div class="metric-block">
+                    <div class="metric-title">UPTIME</div>
+                    <div class="metric-value" id="uptime">99.98%</div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
