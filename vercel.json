@@ -1,9 +1,5 @@
 {
-  "name": "portfolio",
   "version": 2,
-  "buildCommand": "echo 'Static HTML site - no build required'",
-  "outputDirectory": ".",
-  "public": true,
   "headers": [
     {
       "source": "/(.*)",
