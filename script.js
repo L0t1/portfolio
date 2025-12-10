@@ -33,6 +33,9 @@ function initializePortfolio() {
     
     // Terminal command input
     setupTerminalCommands();
+    
+    // Window control buttons
+    setupWindowControls();
 }
 
 // =====================================================
@@ -60,38 +63,146 @@ function handleBootSequence() {
 
 function setupNavigation() {
     const navCommands = document.querySelectorAll('.nav-command');
+    const clickableCommands = document.querySelectorAll('.command-inline.clickable');
     const sections = document.querySelectorAll('.terminal-window');
     const navPanel = document.querySelector('.nav-panel');
     
-    navCommands.forEach(command => {
-        command.addEventListener('click', function(e) {
-            e.preventDefault();
+    // Handle navigation for both nav panel and clickable inline commands
+    const handleNavigationClick = function(e) {
+        e.preventDefault();
+        
+        // Get target section
+        const targetSection = this.getAttribute('data-section');
+        
+        // Check if any section is currently in fullscreen
+        const currentFullscreenSection = document.querySelector('.terminal-window.fullscreen-mode');
+        const wasFullscreen = currentFullscreenSection !== null;
+        
+        // Exit fullscreen from current if exists
+        if (currentFullscreenSection) {
+            exitFullscreen(currentFullscreenSection);
+        }
+        
+        // Remove active class from all commands and sections
+        navCommands.forEach(cmd => cmd.classList.remove('active'));
+        sections.forEach(section => section.classList.remove('active'));
+        
+        // Add active class to clicked command (only if it's a nav command)
+        if (this.classList.contains('nav-command')) {
+            this.classList.add('active');
+        }
+        
+        // Show target section
+        const targetElement = document.getElementById(targetSection);
+        if (targetElement) {
+            // Restore display if it was hidden by red button
+            targetElement.style.display = '';
+            targetElement.classList.add('active');
             
-            // Get target section
+            // If previous was fullscreen, enter fullscreen on new section
+            if (wasFullscreen) {
+                setTimeout(() => enterFullscreen(targetElement), 100);
+            }
+            
+            // Scroll to top of content
+            targetElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Auto-close mobile nav after selection
+        if (window.innerWidth <= 1200 && navPanel) {
+            navPanel.style.display = 'none';
+        }
+    };
+    
+    const handleCommandClick = function(e) {
+        e.preventDefault();
+        
+        // Get command name
+        const command = this.getAttribute('data-command');
+        
+        // Find terminal input and type command
+        const terminalInput = document.getElementById('terminal-input');
+        if (terminalInput) {
+            terminalInput.value = command;
+            terminalInput.focus();
+        }
+    };
+    
+    navCommands.forEach(command => {
+        command.addEventListener('click', handleNavigationClick);
+    });
+    
+    // Add click handlers to clickable inline commands
+    clickableCommands.forEach(command => {
+        command.addEventListener('click', handleCommandClick);
+        command.style.cursor = 'pointer';
+    });
+    
+    // Handle back buttons
+    const backButtons = document.querySelectorAll('.back-button');
+    backButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
             const targetSection = this.getAttribute('data-section');
+            const currentWindow = this.closest('.terminal-window');
+            const isCurrentlyFullscreen = currentWindow && currentWindow.classList.contains('fullscreen-mode');
+            
+            // Exit fullscreen from current window
+            if (isCurrentlyFullscreen) {
+                exitFullscreen(currentWindow);
+            }
             
             // Remove active class from all commands and sections
             navCommands.forEach(cmd => cmd.classList.remove('active'));
             sections.forEach(section => section.classList.remove('active'));
             
-            // Add active class to clicked command
-            this.classList.add('active');
+            // Highlight the target nav command (home)
+            const targetCommand = document.querySelector(`[data-section="${targetSection}"]`);
+            if (targetCommand) {
+                targetCommand.classList.add('active');
+            }
             
             // Show target section
             const targetElement = document.getElementById(targetSection);
             if (targetElement) {
                 targetElement.classList.add('active');
                 
-                // Scroll to top of content
+                // If previous window was fullscreen, enter fullscreen on home
+                if (isCurrentlyFullscreen) {
+                    setTimeout(() => enterFullscreen(targetElement), 100);
+                }
+                
+                // Scroll to top
                 targetElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-            }
-
-            // Auto-close mobile nav after selection
-            if (window.innerWidth <= 1200 && navPanel) {
-                navPanel.style.display = 'none';
             }
         });
     });
+    
+    // Handle close button
+    const navCloseBtn = document.getElementById('nav-close');
+    if (navCloseBtn) {
+        navCloseBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            if (navPanel) {
+                navPanel.style.display = 'none';
+            }
+        });
+    }
+    
+    // Show/hide close button based on screen size
+    function updateCloseButtonVisibility() {
+        const closeBtn = document.getElementById('nav-close');
+        if (closeBtn) {
+            if (window.innerWidth <= 1200) {
+                closeBtn.style.display = 'block';
+            } else {
+                closeBtn.style.display = 'none';
+            }
+        }
+    }
+    
+    updateCloseButtonVisibility();
+    window.addEventListener('resize', updateCloseButtonVisibility);
     
     // Handle hash navigation
     if (window.location.hash) {
@@ -530,6 +641,21 @@ function setupTerminalCommands() {
     const input = document.getElementById('terminal-input');
     const output = document.getElementById('command-output');
     
+    // Auto-focus terminal input when page loads or home section becomes active
+    input.focus();
+    
+    // Also refocus when home section is clicked/viewed
+    const homeWindow = homeSection.closest('.terminal-window');
+    if (homeWindow) {
+        // Create observer to focus input when home becomes active
+        const observer = new MutationObserver(() => {
+            if (homeSection.classList.contains('active')) {
+                setTimeout(() => input.focus(), 100);
+            }
+        });
+        observer.observe(homeSection, { attributes: true, attributeFilter: ['class'] });
+    }
+    
     // Command history
     let commandHistory = [];
     let historyIndex = -1;
@@ -719,6 +845,216 @@ Cluster Health: OPTIMAL
             }, 500);
         }
     }
+}
+
+// =====================================================
+// WINDOW CONTROL BUTTONS (macOS style)
+// =====================================================
+
+function setupWindowControls() {
+    const windowHeaders = document.querySelectorAll('.window-header');
+    const minimizedDock = createMinimizedDock();
+    
+    windowHeaders.forEach(header => {
+        const controls = header.querySelectorAll('.control');
+        const window = header.closest('.terminal-window');
+        
+        if (!window) return;
+        
+        const windowId = window.id;
+        
+        // Red button (close) - completely hide the window
+        if (controls[0]) {
+            controls[0].style.cursor = 'pointer';
+            controls[0].title = 'Close window';
+            controls[0].addEventListener('click', function(e) {
+                e.stopPropagation();
+                
+                // Exit fullscreen if in fullscreen mode
+                if (window.classList.contains('fullscreen-mode')) {
+                    exitFullscreen(window);
+                }
+                
+                // Hide the window completely
+                window.style.display = 'none';
+                
+                // If it's in the dock, remove it
+                const dockItem = document.querySelector(`[data-window-id="${windowId}"]`);
+                if (dockItem) {
+                    dockItem.remove();
+                }
+                
+                // Go to home if current window was active
+                if (window.classList.contains('active')) {
+                    const homeSection = document.getElementById('home');
+                    if (homeSection && homeSection !== window) {
+                        const navCommands = document.querySelectorAll('.nav-command');
+                        const homeCommand = document.querySelector('[data-section="home"]');
+                        
+                        navCommands.forEach(cmd => cmd.classList.remove('active'));
+                        if (homeCommand) homeCommand.classList.add('active');
+                        
+                        const sections = document.querySelectorAll('.terminal-window');
+                        sections.forEach(sec => sec.classList.remove('active'));
+                        homeSection.classList.add('active');
+                        homeSection.style.display = '';
+                    }
+                }
+            });
+        }
+        
+        // Yellow button (minimize) - minimize to dock
+        if (controls[1]) {
+            controls[1].style.cursor = 'pointer';
+            controls[1].title = 'Minimize to dock';
+            controls[1].addEventListener('click', function(e) {
+                e.stopPropagation();
+                
+                // Exit fullscreen if in fullscreen mode
+                if (window.classList.contains('fullscreen-mode')) {
+                    exitFullscreen(window);
+                }
+                
+                // Hide the window but keep in DOM
+                window.classList.remove('active');
+                
+                // Add to dock if not already there
+                addToDock(window, minimizedDock);
+                
+                // Show home
+                const homeSection = document.getElementById('home');
+                if (homeSection && homeSection !== window) {
+                    const navCommands = document.querySelectorAll('.nav-command');
+                    const homeCommand = document.querySelector('[data-section="home"]');
+                    
+                    navCommands.forEach(cmd => cmd.classList.remove('active'));
+                    if (homeCommand) homeCommand.classList.add('active');
+                    
+                    homeSection.classList.add('active');
+                }
+            });
+        }
+        
+        // Green button (fullscreen)
+        if (controls[2]) {
+            controls[2].style.cursor = 'pointer';
+            controls[2].title = 'Fullscreen';
+            controls[2].addEventListener('click', function(e) {
+                e.stopPropagation();
+                toggleFullscreen(window);
+            });
+        }
+    });
+}
+
+function createMinimizedDock() {
+    // Check if dock already exists
+    let dock = document.getElementById('minimized-dock');
+    if (dock) return dock;
+    
+    // Create dock element
+    dock = document.createElement('div');
+    dock.id = 'minimized-dock';
+    dock.className = 'minimized-dock';
+    document.body.appendChild(dock);
+    
+    return dock;
+}
+
+function addToDock(window, dock) {
+    const windowId = window.id;
+    const windowTitle = window.querySelector('.window-title')?.textContent || windowId;
+    
+    // Check if already in dock
+    if (document.querySelector(`[data-window-id="${windowId}"]`)) {
+        return;
+    }
+    
+    // Create dock item
+    const dockItem = document.createElement('div');
+    dockItem.className = 'dock-item';
+    dockItem.setAttribute('data-window-id', windowId);
+    dockItem.innerHTML = `
+        <span class="dock-icon">▢</span>
+        <span class="dock-label">${windowTitle}</span>
+    `;
+    
+    // Click to restore
+    dockItem.addEventListener('click', function() {
+        restoreFromDock(windowId);
+        this.remove();
+    });
+    
+    dock.appendChild(dockItem);
+}
+
+function restoreFromDock(windowId) {
+    const window = document.getElementById(windowId);
+    if (!window) return;
+    
+    // Hide all sections
+    const sections = document.querySelectorAll('.terminal-window');
+    sections.forEach(sec => sec.classList.remove('active'));
+    
+    // Show this window
+    window.classList.add('active');
+    
+    // Update nav
+    const navCommands = document.querySelectorAll('.nav-command');
+    const targetCommand = document.querySelector(`[data-section="${windowId}"]`);
+    
+    navCommands.forEach(cmd => cmd.classList.remove('active'));
+    if (targetCommand) targetCommand.classList.add('active');
+    
+    window.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function toggleFullscreen(window) {
+    const isFullscreen = window.classList.contains('fullscreen-mode');
+    
+    if (isFullscreen) {
+        exitFullscreen(window);
+    } else {
+        enterFullscreen(window);
+    }
+}
+
+function enterFullscreen(window) {
+    // Add fullscreen class
+    window.classList.add('fullscreen-mode');
+    
+    // Hide nav and metrics
+    const navPanel = document.querySelector('.nav-panel');
+    const metricsPanel = document.querySelector('.metrics-panel');
+    
+    if (navPanel) navPanel.style.display = 'none';
+    if (metricsPanel) metricsPanel.style.display = 'none';
+    
+    // Create exit fullscreen button if doesn't exist
+    let exitBtn = window.querySelector('.exit-fullscreen');
+    if (!exitBtn) {
+        exitBtn = document.createElement('button');
+        exitBtn.className = 'exit-fullscreen';
+        exitBtn.innerHTML = '✕ Exit Fullscreen';
+        exitBtn.addEventListener('click', () => exitFullscreen(window));
+        window.appendChild(exitBtn);
+    }
+}
+
+function exitFullscreen(window) {
+    // Remove fullscreen class
+    window.classList.remove('fullscreen-mode');
+    
+    // Show nav and metrics
+    const navPanel = document.querySelector('.nav-panel');
+    const metricsPanel = document.querySelector('.metrics-panel');
+    
+    if (navPanel) navPanel.style.display = '';
+    if (metricsPanel) metricsPanel.style.display = '';
+    
+    // Remove exit button
+    const exitBtn = window.querySelector('.exit-fullscreen');
+    if (exitBtn) exitBtn.remove();
 }
 
 // =====================================================
