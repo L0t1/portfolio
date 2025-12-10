@@ -50,7 +50,6 @@
         <!-- HEADER / STATUS BAR -->
         <header class="status-bar">
             <div class="status-left">
-                <span class="status-indicator pulse"></span>
                 <span class="status-text">SYSTEM ONLINE</span>
                 <span class="separator">|</span>
                 <span class="user">root@lot-kyçyku</span>
@@ -71,7 +70,7 @@
             <nav class="nav-panel">
                 <div class="panel-header">
                     <span class="panel-title">$ NAVIGATION</span>
-                    <div class="panel-indicator"></div>
+                    <button class="panel-close" id="nav-close" aria-label="Close navigation">✕</button>
                 </div>
                 <div class="nav-content">
                     <a href="#home" class="nav-command active" data-section="home">
@@ -151,9 +150,8 @@
                                 <div class="type-line">> Personal Portfolio Interface</div>
                                 <div class="type-line">> Backend Developer • Laravel Specialist • System Architect</div>
                                 <div class="type-line">&nbsp;</div>
-                                <div class="type-line">> Use navigation commands to explore the system</div>
-                                <div class="type-line">> Explore with commands like <span class="command-inline">whoami</span>, <span class="command-inline">skills</span>, <span class="command-inline">projects</span>...</div>
-                                <div class="type-line cursor-blink">█</div>
+                                <div class="type-line">> Use terminal commands to explore the system</div>
+                                <div class="type-line">> Try typing: <span class="command-inline clickable" data-command="whoami">whoami</span>, <span class="command-inline clickable" data-command="skills">skills</span>, <span class="command-inline clickable" data-command="projects">projects</span>...</div>
                             </div>
                         </div>
                     </div>
@@ -162,6 +160,7 @@
                 <!-- WHOAMI SECTION -->
                 <section id="whoami" class="terminal-window">
                     <div class="window-header">
+                        <button class="back-button" data-section="home" title="Back to home">← BACK</button>
                         <div class="window-controls">
                             <span class="control"></span>
                             <span class="control"></span>
@@ -196,16 +195,6 @@
   production-ready code."</span>
 }</pre>
                             </div>
-                            <div class="profile-hologram">
-                                <div class="hologram-frame">
-                                    <div class="hologram-overlay"></div>
-                                    <div class="hologram-scanline"></div>
-                                    <div class="profile-placeholder">
-                                        <img src="avatar.jpg" alt="Lot Kyçyku" class="avatar-image">
-                                    </div>
-                                    <div class="hologram-label">IDENTITY VERIFIED</div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </section>
@@ -213,6 +202,7 @@
                 <!-- SKILLS SECTION -->
                 <section id="skills" class="terminal-window">
                     <div class="window-header">
+                        <button class="back-button" data-section="home" title="Back to home">← BACK</button>
                         <div class="window-controls">
                             <span class="control"></span>
                             <span class="control"></span>
@@ -425,13 +415,14 @@
                 <!-- EXPERIENCE SECTION -->
                 <section id="experience" class="terminal-window">
                     <div class="window-header">
+                        <button class="back-button" data-section="home" title="Back to home">← BACK</button>
                         <div class="window-controls">
                             <span class="control"></span>
                             <span class="control"></span>
                             <span class="control"></span>
                         </div>
                         <div class="window-title">~/experience</div>
-                        <div class="window-status">STREAMING</div>
+                        <div class="window-status">ARCHIVED</div>
                     </div>
                     <div class="window-content">
                         <div class="terminal-output">
@@ -462,13 +453,14 @@
                 <!-- PROJECTS SECTION -->
                 <section id="projects" class="terminal-window">
                     <div class="window-header">
+                        <button class="back-button" data-section="home" title="Back to home">← BACK</button>
                         <div class="window-controls">
                             <span class="control"></span>
                             <span class="control"></span>
                             <span class="control"></span>
                         </div>
                         <div class="window-title">~/projects</div>
-                        <div class="window-status">MONITORING</div>
+                        <div class="window-status">ACTIVE</div>
                     </div>
                     <div class="window-content">
                         <div class="terminal-output">
@@ -715,6 +707,7 @@
                 <!-- CONTACT SECTION -->
                 <section id="contact" class="terminal-window">
                     <div class="window-header">
+                        <button class="back-button" data-section="home" title="Back to home">← BACK</button>
                         <div class="window-controls">
                             <span class="control"></span>
                             <span class="control"></span>
@@ -772,6 +765,7 @@
                 <!-- LOGS SECTION -->
                 <section id="logs" class="terminal-window">
                     <div class="window-header">
+                        <button class="back-button" data-section="home" title="Back to home">← BACK</button>
                         <div class="window-controls">
                             <span class="control"></span>
                             <span class="control"></span>
