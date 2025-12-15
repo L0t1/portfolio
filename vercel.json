@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "buildCommand": "cd lot-kyçyku-portfolio && npm install && npm run build",
-  "outputDirectory": ".",
-  "installCommand": "echo 'No root dependencies'",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "installCommand": "echo 'No dependencies to install'",
   "headers": [
     {
       "source": "/(.*)",

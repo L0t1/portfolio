@@ -11,7 +11,7 @@ export default defineConfig(({ mode }) => {
         host: '0.0.0.0',
       },
       build: {
-        outDir: '../react',
+        outDir: '../dist/react',
         emptyOutDir: true,
       },
       plugins: [react()],

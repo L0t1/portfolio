@@ -1,0 +1,7 @@
+{
+  "name": "lot-kycyku-portfolio-root",
+  "private": true,
+  "scripts": {
+    "build": "mkdir -p dist && cd lot-kyçyku-portfolio && npm install && npm run build && cd .. && cp index.html dist/ && cp styles.css dist/ && cp script.js dist/ && cp avatar.jpg dist/ && cp favicon.svg dist/"
+  }
+}
