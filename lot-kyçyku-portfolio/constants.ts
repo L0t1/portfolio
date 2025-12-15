@@ -73,23 +73,93 @@ export const EXPERIENCE: Experience[] = [
 export const PROJECTS: Project[] = [
   {
     id: 1,
-    title: "Scalable SaaS Architecture",
-    description: "A multi-tenant SaaS boilerplate built with Laravel 11, designed for high availability and rapid feature deployment.",
-    tech: ["Laravel 11", "Tenancy", "Redis", "Docker"],
-    github: "https://github.com/lotkycyku"
+    title: "AI Customer Support",
+    description: "Intelligent customer support system with AI-powered responses.",
+    tech: ["Laravel", "OpenAI API", "Redis"],
+    github: "https://github.com/L0t1"
   },
   {
     id: 2,
-    title: "E-Commerce API Core",
-    description: "Headless e-commerce backend engine featuring complex inventory management, JWT authentication, and optimized search.",
-    tech: ["PHP 8.3", "Laravel Sanctum", "ElasticSearch", "MySQL"],
-    github: "https://github.com/lotkycyku"
+    title: "Predictive Analytics",
+    description: "Machine learning-based predictive analytics engine.",
+    tech: ["Python", "Pandas", "Laravel API"],
+    github: "https://github.com/L0t1"
   },
   {
     id: 3,
-    title: "DevOps Automation Bot",
-    description: "Automated deployment and monitoring tool integrating Slack webhooks with GitHub Actions pipelines.",
-    tech: ["Node.js", "GitHub Actions", "Websockets"],
-    github: "https://github.com/lotkycyku"
+    title: "Image Recognition",
+    description: "Image processing and recognition using Google Vision API.",
+    tech: ["Google Vision API", "Laravel", "AWS S3"],
+    github: "https://github.com/L0t1"
+  },
+  {
+    id: 4,
+    title: "E-commerce Platform",
+    description: "Full-featured e-commerce platform with payment integration.",
+    tech: ["Laravel", "MySQL", "Redis", "Stripe"],
+    github: "https://github.com/L0t1"
+  },
+  {
+    id: 5,
+    title: "Finances SaaS",
+    description: "Cloud-based financial management and accounting platform.",
+    tech: ["Laravel", "Vue.js", "MySQL", "Docker"],
+    github: "https://github.com/L0t1"
+  },
+  {
+    id: 6,
+    title: "Fleet Management",
+    description: "Vehicle fleet management and GPS tracking system.",
+    tech: ["Laravel", "Google Maps API", "Socket.io"],
+    github: "https://github.com/L0t1"
+  },
+  {
+    id: 7,
+    title: "Corporate Dashboard",
+    description: "Real-time business analytics and reporting dashboard.",
+    tech: ["React", "Laravel API", "Chart.js"],
+    github: "https://github.com/L0t1"
+  },
+  {
+    id: 8,
+    title: "HR Management",
+    description: "Employee management, payroll, and attendance tracking.",
+    tech: ["Laravel", "PostgreSQL", "Vue.js"],
+    github: "https://github.com/L0t1"
+  },
+  {
+    id: 9,
+    title: "Project Tracker",
+    description: "Task tracking, team collaboration, and project timelines.",
+    tech: ["Laravel", "Inertia.js", "React"],
+    github: "https://github.com/L0t1"
+  },
+  {
+    id: 10,
+    title: "Inventory System",
+    description: "Stock management with real-time inventory tracking.",
+    tech: ["Laravel", "Livewire", "MySQL"],
+    github: "https://github.com/L0t1"
+  },
+  {
+    id: 11,
+    title: "POS System",
+    description: "Retail POS system with transaction processing and reporting.",
+    tech: ["Electron", "Laravel API", "SQLite"],
+    github: "https://github.com/L0t1"
+  },
+  {
+    id: 12,
+    title: "Travel Agency Portal",
+    description: "Travel booking portal with package and itinerary management.",
+    tech: ["Laravel", "Amadeus API", "React"],
+    github: "https://github.com/L0t1"
+  },
+  {
+    id: 13,
+    title: "Restaurant Landing",
+    description: "Restaurant booking and menu management system.",
+    tech: ["React", "Tailwind CSS", "Laravel"],
+    github: "https://github.com/L0t1"
   }
 ];
