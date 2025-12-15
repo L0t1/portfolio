@@ -1,185 +1,169 @@
-# 🚀 LOT KYÇYKU - Backend Developer Portfolio OS
+# Lot Kyçyku Portfolio - Dual Interface
 
-A futuristic, cyber-terminal style personal portfolio interface showcasing backend development expertise with a next-generation developer operating system aesthetic.
+This portfolio features **two distinct interfaces** serving different audiences:
 
-![Portfolio OS](https://img.shields.io/badge/Portfolio-OS%20v1.9.22-00f6ff?style=for-the-badge&logo=laravel&logoColor=white)
-![Backend](https://img.shields.io/badge/Backend-Developer-00ff9f?style=for-the-badge)
-![Laravel](https://img.shields.io/badge/Laravel-Specialist-ff2d20?style=for-the-badge&logo=laravel&logoColor=white)
+## 🖥️ Terminal Interface (Main/Default)
+**URL:** `https://yourdomain.com/` (root)
 
-## 🎨 Design Concept
+A backend-themed terminal interface designed for backend developers and system architects who appreciate CLI aesthetics.
 
-This portfolio represents a **cyber-terminal operating system** interface, inspired by:
-- Tron Legacy UI
-- Warp Terminal aesthetics
-- GitHub Arctic Vault console
-- Starship shell + futuristic HUD overlays
-- Sci-fi holographic dashboards
-- Kubernetes cluster control panels
+**Features:**
+- Terminal-style navigation
+- Backend OS theme
+- JSON-formatted data display
+- Command-line interactions
+- Boot sequence animation
 
-## ✨ Features
+**Tech Stack:**
+- Vanilla HTML/CSS/JavaScript
+- Custom terminal emulation
+- No build process required
 
-### 🖥️ Cinematic Boot Sequence
-- System initialization animation
-- Module loading sequence (Laravel, MySQL, MongoDB, Redis, Docker)
-- Progress bar with neon glow effects
-- Auto-transition to main interface
+## ⚛️ React Interface (Modern/Alternative)
+**URL:** `https://yourdomain.com/react/`
 
-### 🎯 Main Interface Components
+A modern, frontend-friendly portfolio with smooth animations and contemporary design.
 
-#### Left Navigation Panel
-- Terminal-style command navigation
-- Holographic hover effects
-- Active state indicators
-- System information footer
+**Features:**
+- Smooth scroll animations (GSAP + Lenis)
+- Interactive mascot character
+- Modern UI/UX
+- Responsive design
+- Framer Motion animations
 
-#### Center Content Area
-- **Home**: ASCII art welcome screen
-- **Whoami**: JSON-formatted identity & credentials
-- **Skills**: Package list display of technologies
-- **Experience**: System log-style work history
-- **Projects**: Microservice node visualization
-- **Contact**: Interactive terminal form
-- **Logs**: Live streaming system logs
+**Tech Stack:**
+- React 19
+- TypeScript
+- Vite
+- GSAP + ScrollTrigger
+- Framer Motion
+- Tailwind CSS (via CDN)
 
-#### Right Metrics Panel
-- Real-time CPU & RAM usage animations
-- Queue workers status
-- Cron job monitoring
-- API request counter
-- Database connection status
-- Cluster health indicator
-- System uptime display
-
-## 🛠️ Technologies Featured
-
-### Backend Stack
-- **PHP** (v8.3+)
-- **Laravel Framework** (v11.x)
-- **MySQL** - Relational database
-- **MongoDB** - NoSQL database
-- **Redis** - Caching & queues
-- **Docker** - Containerization
-- **Laravel Horizon** - Queue monitoring
-- **Cron Scheduler** - Task automation
-
-### Frontend Integration
-- **Vue.js**
-- **React.js**
-- **Tailwind CSS**
-
-## 🎨 Color Palette
-
-```css
-Cyber Black:   #0a0e14
-Cyber Cyan:    #00f6ff (Primary)
-Cyber Green:   #00ff9f (Success)
-Cyber Blue:    #00b8ff (Info)
-Cyber Magenta: #ff00ff (Accent)
-Cyber Purple:  #bd00ff (Secondary)
-Cyber Red:     #ff0055 (Error)
-```
-
-## 🌟 Visual Effects
-
-- **Scanlines**: Authentic terminal feel
-- **Neon Glows**: Cyberpunk-style lighting
-- **Glitch Effects**: Dynamic text animations
-- **Holographic Overlays**: Futuristic UI elements
-- **Pulse Animations**: Living interface indicators
-- **Circuit Lines**: Connecting service nodes
-
-## 📱 Responsive Design
-
-Fully responsive across all devices:
-- **Desktop**: Full three-panel layout
-- **Tablet**: Adaptive two-panel layout
-- **Mobile**: Single-column optimized view
-
-## 🚀 Quick Start
-
-1. **Clone or Download** this repository
-2. **Open `index.html`** in a modern browser
-3. **Experience** the boot sequence
-4. **Navigate** using terminal-style commands
-
-No build process required - pure HTML, CSS, and JavaScript!
-
-## 📂 Project Structure
+## 📁 Project Structure
 
 ```
-portfolio-os/
-│
-├── index.html          # Main HTML structure
-├── styles.css          # Cyber-terminal styling
-├── script.js           # Interactive functionality
-└── README.md           # Documentation
+l0t1/
+├── index.html              # Terminal portfolio (main entry)
+├── styles.css              # Terminal styles
+├── script.js               # Terminal logic
+├── avatar.jpg              # Profile image
+├── favicon.svg             # Site favicon
+├── vercel.json             # Deployment config
+├── react/                  # Built React app (generated)
+│   ├── index.html
+│   └── assets/
+└── lot-kyçyku-portfolio/   # React source code
+    ├── App.tsx
+    ├── components/
+    ├── hooks/
+    ├── vite.config.ts
+    └── package.json
 ```
 
-## 💻 Key Sections
+## 🔄 Navigation Between Interfaces
 
-### Whoami - Identity Display
-Presents developer information in JSON format with holographic profile visualization.
+### From Terminal → React
+On the terminal homepage, click the link:
+> 🤓 If you're a frontend dev and this terminal is overwhelming, check out my **React portfolio here!**
 
-### Skills - Package Manager Style
-Technologies displayed as installed system packages with version info and status badges.
+### From React → Terminal
+On the React hero section, click the link:
+> 💻 Backend dev? Prefer terminals? **Check out the CLI version!**
 
-### Experience - System Logs
-Work history formatted as scrolling log entries with timestamps and detailed responsibilities.
+## 🚀 Development
 
-### Projects - Microservices Dashboard
-Portfolio projects visualized as active service nodes with real-time status indicators.
+### Terminal Interface
+No build required! Just edit the HTML/CSS/JS files directly:
+```bash
+# Serve locally (optional)
+npx serve .
+```
 
-### Contact - Terminal Interface
-Interactive command-line style contact form with validation and social links.
+### React Interface
+```bash
+cd lot-kyçyku-portfolio
 
-## 🎯 Personal Information
+# Install dependencies
+npm install
 
-**Name**: Lot Kyçyku  
-**Role**: Backend Developer (Laravel Specialist)  
-**Location**: Prizren, Kosovo  
-**Experience**: 4+ years  
+# Development server (runs on http://localhost:3000)
+npm run dev
 
-**Email**: lotkycyku@gmail.com  
-**Phone**: +383 45 450 350  
-**GitHub**: [github.com/L0t1](https://github.com/L0t1)  
-**LinkedIn**: [linkedin.com/in/lotuuu](https://linkedin.com/in/lotuuu)  
+# Build for production (outputs to ../react/)
+npm run build
+```
 
-## 🎓 Education
+## 📦 Deployment
 
-**Bachelor of Science - Computer Science & Engineering**  
-UBT University, Prizren, Kosovo
+### Vercel (Recommended)
+The project is configured for Vercel deployment:
 
-## 💼 Current Position
+1. **Terminal** is served at root (`/`)
+2. **React** is served at `/react/`
+3. Both interfaces work seamlessly together
 
-**Backend Developer** at Albismart (May 2022 – Present)
-- Designing and maintaining large-scale Laravel applications
-- Building RESTful APIs for production clients
-- Engineering MySQL & MongoDB schemas
-- Implementing cron automation for reporting & alerts
-- Designing queue systems using Redis & Horizon
-- Dockerizing environments for development & production
-- Integrating with React, Vue & Tailwind frontend teams
-- Code reviews & CI/CD collaboration
+```bash
+# Deploy to Vercel
+vercel --prod
+```
 
-## 🌐 Browser Support
+### Manual Deployment
+1. Build the React app: `cd lot-kyçyku-portfolio && npm run build`
+2. Upload the entire `l0t1` folder (including generated `/react` directory)
+3. Ensure your server serves:
+   - `index.html` at root
+   - `/react/index.html` for React routes
 
-- ✅ Chrome (Recommended)
-- ✅ Firefox
-- ✅ Safari
-- ✅ Edge
-- ✅ Opera
+## 🛠️ Making Changes
 
-## 📝 License
+### Update Terminal Portfolio
+Edit files directly in the root:
+- `index.html` - Content and structure
+- `styles.css` - Styling
+- `script.js` - Interactivity
 
-This portfolio design is open source and available for personal use.
+### Update React Portfolio
+1. Edit source files in `lot-kyçyku-portfolio/`
+2. Test with `npm run dev`
+3. Build with `npm run build`
+4. The built files automatically go to `/react/`
 
-## 🤝 Contact
+## ⚙️ Configuration Files
 
-Feel free to reach out for backend development opportunities, collaborations, or just to connect!
+### `vite.config.ts`
+- `base: '/react/'` - Sets base URL for React app
+- `outDir: '../react'` - Outputs build to parent `/react` folder
+
+### `vercel.json`
+- Configures routing for both interfaces
+- Sets cache headers
+- Handles SPA routing for React app
+
+## 📝 Notes
+
+- The `/react` folder is **generated** and should not be edited directly
+- The `/react` folder is gitignored - it's built during deployment
+- Both portfolios share the same domain but are completely independent
+- Each interface can be updated without affecting the other
+
+## 🎯 Target Audiences
+
+**Terminal Interface:**
+- Backend developers
+- DevOps engineers
+- System administrators
+- CLI enthusiasts
+- Technical recruiters looking for backend talent
+
+**React Interface:**
+- Frontend developers
+- UI/UX designers
+- General recruiters
+- Non-technical stakeholders
+- Mobile users (better responsive experience)
 
 ---
 
-**Built with** 💚 **using pure HTML, CSS & JavaScript**  
-**Powered by** ☕ **coffee and backend engineering passion**
-
-© 2025 Lot Kyçyku | Backend Developer OS v1.9.22
+**Author:** Lot Kyçyku  
+**Email:** lotkycyku@gmail.com  
+**GitHub:** [@L0t1](https://github.com/L0t1)

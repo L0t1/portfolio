@@ -12,3 +12,6 @@ desktop.ini
 npm-debug.log*
 .vercel
 .env*.local
+
+# Built React app
+/react/

@@ -1,5 +1,7 @@
 {
   "version": 2,
+  "buildCommand": "cd lot-kyçyku-portfolio && npm install && npm run build",
+  "installCommand": "echo 'No root dependencies'",
   "headers": [
     {
       "source": "/(.*)",
@@ -30,12 +32,25 @@
           "value": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400"
         }
       ]
+    },
+    {
+      "source": "/react/index.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=0, s-maxage=3600, stale-while-revalidate=86400"
+        }
+      ]
     }
   ],
   "rewrites": [
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "source": "/react/:path*",
+      "destination": "/react/:path*"
+    },
+    {
+      "source": "/react",
+      "destination": "/react/index.html"
     }
   ]
 }
