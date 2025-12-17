@@ -16,8 +16,7 @@ const Hero: React.FC = () => {
       >
         <h2 className="text-emerald-400 font-mono mb-4 text-lg">Hello, I'm Lot Kyçyku</h2>
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-tight text-slate-100 mb-8">
-          Fullstack Engineer <span className="text-emerald-400">(Backend-Heavy)</span>.<br />
-          <span className="text-slate-500">System Architect.</span>
+          LOT-KYÇYKU: Full Stack Engineer (Laravel, Next.js, Vue.js)
         </h1>
         <p className="text-xl text-slate-400 max-w-2xl leading-relaxed mb-10">
           I build scalable Laravel systems, robust APIs, and production-ready architectures that power modern web applications—with a strong focus on backend engineering, but also skilled in modern frontend integration.
